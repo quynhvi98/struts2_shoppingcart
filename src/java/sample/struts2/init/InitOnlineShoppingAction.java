@@ -6,18 +6,26 @@
 package sample.struts2.init;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
+import sameple.product.ProductDAO;
 
 /**
  *
  * @author viquy
  */
 public class InitOnlineShoppingAction extends ActionSupport {
-    
+    private Map<String, String> itemsList;
+    private final String SUCCESS = "success";
     public InitOnlineShoppingAction() {
     }
     
     public String execute() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ProductDAO dao = new ProductDAO();
+        dao.getAllProducts();
+        this.itemsList = dao.getItemsList();
+        return SUCCESS;
     }
-    
+    public Map<String, String> getItemsList(){
+        return itemsList;
+    }
 }

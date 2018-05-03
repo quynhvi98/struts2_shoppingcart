@@ -4,7 +4,12 @@
 
 <struts>
     <!-- Configuration for the default package. -->
-    <package name="default" extends="struts-default">
-        
+    <package name="default" extends="struts-default" namespace="/">
+        <action name="" class="sample.struts2.init.InitOnlineShoppingAction">
+            <result>onlineShopping.jsp</result>
+        </action>
+        <action name="viewCart">
+            <result>viewCart.jsp</result>
+        </action>
     </package>
 </struts>
