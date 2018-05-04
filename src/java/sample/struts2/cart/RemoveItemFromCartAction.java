@@ -15,7 +15,7 @@ import sample.cart.CartObj;
  *
  * @author viquy
  */
-public class RemoveItemFromCartAction extends ActionSupport {
+public class RemoveItemFromCartAction{
     private String[] selectedItem;
     private final String SUCCESS = "success";
     public RemoveItemFromCartAction() {
@@ -35,6 +35,7 @@ public class RemoveItemFromCartAction extends ActionSupport {
         if(cart != null){
             for(String item : selectedItem){
                 System.out.println("dd" + item);
+                cart.removeItemFromCart(item);
             }
             session.put("CART", cart);
         }
