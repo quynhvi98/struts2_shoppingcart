@@ -8,6 +8,9 @@
         <action name="" class="sample.struts2.init.InitOnlineShoppingAction">
             <result>onlineShopping.jsp</result>
         </action>
+        <action name="addToCart" class="sample.struts2.cart.AddToCartAction">
+            <result name="success">onlineShopping.jsp</result>
+        </action>
         <action name="viewCart">
             <result>viewCart.jsp</result>
         </action>
