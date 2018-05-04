@@ -5,19 +5,40 @@
  */
 package sample.struts2.cart;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import java.awt.BorderLayout;
+import java.util.Map;
+import sample.cart.CartObj;
 
 /**
  *
  * @author viquy
  */
 public class RemoveItemFromCartAction extends ActionSupport {
-    
+    private String[] selectedItem;
+    private final String SUCCESS = "success";
     public RemoveItemFromCartAction() {
+    }
+
+    public String[] getSelectedItem() {
+        return selectedItem;
+    }
+
+    public void setSelectedItem(String[] selectedItem) {
+        this.selectedItem = selectedItem;
     }
     
     public String execute() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Map session = ActionContext.getContext().getSession();
+        CartObj cart = (CartObj) session.get("CART");
+        if(cart != null){
+            for(String item : selectedItem){
+                System.out.println("dd" + item);
+            }
+            session.put("CART", cart);
+        }
+        return SUCCESS;
     }
     
 }

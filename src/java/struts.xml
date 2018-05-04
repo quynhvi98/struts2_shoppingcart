@@ -14,5 +14,11 @@
         <action name="viewCart">
             <result>viewCart.jsp</result>
         </action>
+        <action name="addMore" class="sample.struts2.init.InitOnlineShoppingAction">
+            <result>onlineShopping.jsp</result>
+        </action>   
+        <action name="removeCart" class="sample.struts2.cart.RemoveItemFromCartAction">
+            <result name="success" type="redirectAction">viewCart</result>
+        </action>        
     </package>
 </struts>
